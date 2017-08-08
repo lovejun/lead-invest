@@ -23,67 +23,51 @@
                 </span>
             </div>           
         </div>
-        <div class="login-right">
-            <p class="login-name">
-                企业登录
-            </p>
-            <div class="login-zhanghao">
-                <span>
-                <img src="/static/img/账号.png" class="icon-fir">
-                </span>
-                <input type="text" placeholder="请输入账号/手机号" class="user-name"/>
+        <div class="login-box">
+            <div class="login-name">企业登录</div>
+            <div class="login-ac">
+                <input type="text" class="login-account" placeholder="请输入账号/手机号">
             </div>
-            <div class="login-mima">
-                 <span>
-                 <img src="/static/img/密码.png" class="icon-sec">
-                 </span>
-                 <input type="password" placeholder="请输入密码" class="user-pass" />
+            <div class="login-pass">
+                <input type="password" class="login-account" placeholder="请输入密码">
+            </div>  
+            <div class="find-pass">
+                <a href="#" class="pass-find">找回密码</a>
+                <a href="#" class="pass-zhuce">企业注册</a>
             </div>
-            <div>
-                 <a href="#" class="password-seach">找回密码</a>    
-                 <a href="#" class="registration">企业注册</a> 
-            </div>    
-            <button class="register">登录</button> 
-            <hr class="line-bottom" />
-            
+            <button type="button" class="login-btn">
+                登录
+            </button>
+            <div class="login-right-bottom">
+                <p>
+                   <img src="/static/img/联系我们.png"> 
+                </p>
+                <p>
+                   <img src="/static/img/关于我们.png"> 
+                </p>
+                <p>
+                   <img src="/static/img/App下载.png"> 
+                </p>
+            </div>
+            <div class="login-footer">
+                 <p>
+                   联系我们 
+                </p>
+                <p>
+                   关于我们 
+                </p>
+                <p>
+                   APP下载 
+                </p>
+            </div>
         </div>
-       
-       
     </div>
+  </div>
 </template>
 
 <script>
     export default {
-        data: function(){
-            return {
-                ruleForm: {
-                    username: '',
-                    password: ''
-                },
-                rules: {
-                    username: [
-                        { required: true, message: '请输入用户名', trigger: 'blur' }
-                    ],
-                    password: [
-                        { required: true, message: '请输入密码', trigger: 'blur' }
-                    ]
-                }
-            }
-        },
-        methods: {
-            submitForm(formName) {
-                const self = this;
-                self.$refs[formName].validate((valid) => {
-                    if (valid) {
-                        localStorage.setItem('ms_username',self.ruleForm.username);
-                        self.$router.push('/readme');
-                    } else {
-                        console.log('error submit!!');
-                        return false;
-                    }
-                });
-            }
-        }
+      
     }
 </script>
 
@@ -101,27 +85,6 @@
         background-repeat: no-repeat;
         margin: 0 auto;
     }
-    .ms-title{
-        position: absolute;
-        top:50%;
-        width:100%;
-        margin-top: -230px;
-        text-align: center;
-        font-size:30px;
-        color: #fff;
-
-    }
-    .ms-login{
-        position: absolute;
-        left:50%;
-        top:50%;
-        width:300px;
-        height:160px;
-        margin:-150px 0 0 -190px;
-        padding:40px;
-        border-radius: 5px;
-        background: #fff;
-    }
     .login-btn{
         text-align: center;
     }
@@ -130,9 +93,6 @@
         height:36px;
     }
     .login-left{
-       /* position: absolute;*/
-       /* top: 180px;
-        left: 110px;*/
         font-size: 96px;
         color: #fff;
         font-family: ITC Avant Garda Gothic Demi Regular;
@@ -140,14 +100,9 @@
     .login-center{
         font-size: 40px;
         color: #afacae;
-        /*position: absolute;*/
-        /*top: 300px;*/
-        /*left: 110px;*/
-       /* margin-top: 24px;*/
     }
     span{
         color: #aca7a7;
-       /* position: absolute;*/
     }
     .left-fir{
         top: 800px;
@@ -181,96 +136,95 @@
         margin-left: 10px;
         margin-top: 48px;
    }
-   .login-right{
-        position: absolute;
-        top: 280px;
-        left: 800px;
-   }
-   .login-name{
-        color: #fff;
-        font-size: 28px;
-        /*margin-left: 240px;*/
-   }
-    .login-right{
-        text-align: center;
-        margin-left: 200px;
-        clear: both;
-    }
-    .user-name{
-        width: 300px;
-        height: 80px;
-        border: none;
-        background: transparent; 
-        color: #fff;
-        font-size: 20px;
-        /*background-image: url(/static/img/账号.png);*/
-        /*background-repeat: no-repeat;*/
-        /*background-position: 0% 50%;*/
-        border-bottom: solid 2px #a6a9ad;
-        border-left: none;
-        border-top: none;
-        border-right: none;
-        outline: none;
-    }
-    .user-pass{
-        width: 300px;
-        height: 80px;
-        /*border: none;*/
-        background: transparent; 
-        color: #fff;
-        font-size: 20px;
-       /* background-image: url(/static/img/密码.png);
-        background-repeat: no-repeat;
-        background-position: 0% 50%;*/
-        border-bottom: solid 2px #a6a9ad;
-        border-left: none;
-        border-top: none;
-        border-right: none;
-        outline: none;
-    }
-     input::-webkit-input-placeholder{
+    input::-webkit-input-placeholder{
         color: #a6a9ad;
      }
      .icon-fir{
-        /*margin-top: 50px;*/
+        
      }
-     .login-zhanghao img{
+    .login-box{
+        width: 466px;
+        height: 488px;
+        text-align: center;
         position: absolute;
-        top: 60px;
-        left: -40px;
-     }
-     .login-mima img{
-        position: absolute;
-        top: 140px;
-        left: -40px;
-     }
-     a{
+        top: 307px;
+        left: 840px;
+        border-left: solid 2px #a6a9ad;
+    }
+    .login-name{
+        width: 382px;
+        font-size: 24px;
         color: #fff;
+        font-family: "微软雅黑";
+        margin-bottom: 48px;
+        margin-left: 82px;
+    }
+    .login-account{
+        width: 382px;
+        height: 84px;
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        outline: none;
+        color: #fff;  
+    }
+    .login-ac,.login-pass{
+        width: 330px;
+        height: 84px;
+        padding-left: 48px;
+        border-bottom: solid 2px #a6a9ad;
+        margin-left: 82px;
+        margin-bottom: 16px;
+    }
+    .login-ac{
+        background: url(/static/img/账号.png) no-repeat left center;
+    }
+    .login-pass{
+        background: url(/static/img/密码.png) no-repeat left center;
+    }
+    .find-pass{
+        width: 382px;
         font-size: 16px;
-        margin-top: 16px;
-        display: inline-block;
-     }
-     .password-seach{
+        margin-bottom: 64px;
+        margin-left: 82px;
+        clear: both;
+    }
+    .pass-find{
+        color: #fff;
         float: left;
-     }
-     .registration{
+    }
+    .pass-zhuce{
+        color: #fff;
         float: right;
-     }
-     .register{
-        width: 300px;
+    }
+    .login-btn{
+        width: 382px;
         height: 54px;
-        margin-top: 42px;
+        font-size: 24px;
         border-radius: 30px;
+        margin-left: 82px;
         background: #f05e5e;
         border: none;
+        margin-bottom: 38px;
         color: #fff;
-        font-size: 22px;
-        /*font-family: "微软雅黑";*/
-        outline: none;
-     }
-     .line-bottom{
-        margin-top: 24px;
-        border: solid 1px #a6a9ad;
-        /*background: green;*/
-     }
+    }
+    .login-right-bottom{
+        width: 382px;
+        margin-left: 82px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .login-right-bottom p{
+        width: 33.33%;
+        float: left;
+    }
+    .login-footer{
+        margin-left: 82px;
+    }
+    .login-footer p{
+        width: 33.33%;
+        float: left;
+        color: #fff;
+        font-size: 12px;
+    }
 </style>
