@@ -24,9 +24,10 @@
             </div>           
         </div>
         <div class="login-box">
-            <div class="login-name">企业登录</div>
+       <div class="login-name">企业登录</div>
             <div class="login-ac">
-                <input type="text" class="login-account" placeholder="请输入账号/手机号">
+                <input type="text" class="login-account" placeholder="请输入账号/手机号"
+                V-model="userName">
             </div>
             <div class="login-pass">
                 <input type="password" class="login-account" placeholder="请输入密码">
@@ -35,9 +36,10 @@
                 <a href="#" class="pass-find">找回密码</a>
                 <a href="#" class="pass-zhuce">企业注册</a>
             </div>
-            <button type="button" class="login-btn">
+            <button type="button" class="login-btn" @click="submitForm('ruleForm')">
                 登录
             </button>
+            <hr class="hr" />
             <div class="login-right-bottom">
                 <p>
                    <img src="/static/img/联系我们.png"> 
@@ -62,12 +64,13 @@
             </div>
         </div>
     </div>
+
   </div>
 </template>
 
 <script>
     export default {
-      
+        
     }
 </script>
 
@@ -156,7 +159,7 @@
         font-size: 24px;
         color: #fff;
         font-family: "微软雅黑";
-        margin-bottom: 48px;
+        margin-bottom: 24px;
         margin-left: 82px;
     }
     .login-account{
@@ -174,20 +177,21 @@
         padding-left: 48px;
         border-bottom: solid 2px #a6a9ad;
         margin-left: 82px;
-        margin-bottom: 16px;
+        /*margin-bottom: 16px;*/
     }
     .login-ac{
         background: url(/static/img/账号.png) no-repeat left center;
     }
     .login-pass{
         background: url(/static/img/密码.png) no-repeat left center;
+        margin-bottom: 16px;
     }
     .find-pass{
         width: 382px;
         font-size: 16px;
         margin-bottom: 64px;
         margin-left: 82px;
-        clear: both;
+        /*clear: both;*/
     }
     .pass-find{
         color: #fff;
@@ -205,8 +209,9 @@
         margin-left: 82px;
         background: #f05e5e;
         border: none;
-        margin-bottom: 38px;
+        margin-bottom: 64px;
         color: #fff;
+        margin-top: 4px;
     }
     .login-right-bottom{
         width: 382px;
@@ -226,5 +231,11 @@
         float: left;
         color: #fff;
         font-size: 12px;
+    }
+    .hr{
+        width: 382px;
+        border: solid 1px #a6a9ad;
+        margin-left: 82px;
+        margin-bottom: 16px;
     }
 </style>
